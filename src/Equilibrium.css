@@ -1,0 +1,10 @@
+.Equilibrium {
+    margin: auto;
+    padding: 2%;
+    max-width: 750px;
+}
+
+.Equilibrium p {
+    text-align: center;
+    padding-bottom: 5px;
+}
