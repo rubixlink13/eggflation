@@ -6,6 +6,7 @@ import Introduction from './Introduction';
 import reportWebVitals from './reportWebVitals';
 import IncomeChart from './IncomeChart';
 import EggPrices from './EggPrices';
+import EggPriceChart from './EggPriceChart';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +15,7 @@ root.render(
     <Introduction />
     <IncomeChart />
     <EggPrices />
+    <EggPriceChart />
   </React.StrictMode>
 );
 
