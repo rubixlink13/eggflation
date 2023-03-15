@@ -42,7 +42,7 @@ const StyledDiv = styled('div')(() => ({
       width: '100%',
       marginBottom: '10px',
     },
-  }));
+}));
 
 const Text = ({ text }) => {
     const [mainText, subText] = text.split('\\n');
