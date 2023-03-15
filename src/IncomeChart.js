@@ -3,6 +3,8 @@ import Paper from '@mui/material/Paper';
 import {
     Chart,
     LineSeries,
+    ArgumentAxis,
+    ValueAxis,
     Title,
     Legend,
 } from '@devexpress/dx-react-chart-material-ui';
@@ -14,7 +16,8 @@ import {
     line,
 } from 'd3-shape';
 import './IncomeChart.css';
-import Slider from '@mui/material/Slider';
+import { Slider } from 'devextreme-react/slider';
+import 'devextreme/dist/css/dx.light.css';
 
 const Line = props => (
     <LineSeries.Path
@@ -57,52 +60,119 @@ const Text = ({ text }) => {
 };
 
 const modifyDomain = () => [0, 100];
-function IncomeChart() {
-    const [position, setPosition] = React.useState(3);
+// function IncomeChart() {
+//     const [position, setPosition] = React.useState(3);
 
     
-    const chartData = [
-        {x1 : 5, y1 : 95},
-        {x1 : 25, y1 : 25},
-        {x1 : 95, y1 : 5},
-        {x2 : 5 - position, y2 : 95 - position},
-        {x2 : 25 - position, y2 : 25 - position},
-        {x2 : 95 - position, y2 : 5 - position},
-    ];
+//     const chartData = [
+//         {x1 : 5, y1 : 95},
+//         {x1 : 25, y1 : 25},
+//         {x1 : 95, y1 : 5},
+//         {x2 : 5 - position, y2 : 95 - position},
+//         {x2 : 25 - position, y2 : 25 - position},
+//         {x2 : 95 - position, y2 : 5 - position},
+//     ];
 
 
-    return (
-        <div className = "IncomeChart">
-            <Paper>
-                <Chart data={chartData}>
-                    <ArgumentScale modifyDomain={() => [0, 100]}/>
-                    <ValueScale modifyDomain={() => [0, 100]}/>
-                    {/* <ArgumentAxis /> */}
-                    {/* <ValueAxis title="test" showTicks={false} showLabels={false}/> */}
-                    <LineSeries name="Original Demand" valueField="x1" argumentField="y1" seriesComponent={Line}/>
-                    <LineSeries name="Demand after income change" valueField="x2" argumentField="y2" seriesComponent={Line}/>
-                    <Legend position = "bottom" rootComponent={Root} itemComponent={Item} labelComponent={Label} />
-                    <Title
-                        text="Demand of an Inferior Good vs. % Change in Income"
-                        textComponent={Text}
-                    />
-                </Chart>
-                <Slider
-                    aria-label = "IncomeChange"
-                    min = {-5}
-                    max = {5}
-                    step = {1}
-                    onChange={(_, value) => setPosition(value)}
-                    value = {position}
-                    size = "small"
-                    valueLabelDisplay = "auto"
-                    valueLabelFormat = {(value) => {return `${value}%`;}}
-                />
-                <p>% Change in Income</p>
+//     return (
+//         <div className = "IncomeChart">
+//             <Paper>
+//                 <Chart data={chartData}>
+//                     <ArgumentScale modifyDomain={() => [0, 100]}/>
+//                     <ValueScale modifyDomain={() => [0, 100]}/>
+                    
+//                     {/* <ValueAxis title="test" showTicks={false} showLabels={false}/> */}
+//                     <LineSeries name="Original Demand" valueField="x1" argumentField="y1" seriesComponent={Line}/>
+//                     <LineSeries name="Demand after income change" valueField="x2" argumentField="y2" seriesComponent={Line}/>
+//                     {/* <ArgumentAxis position="bottom" wholeRange={[0,100]}/> */}
+//                     <Legend position = "bottom" rootComponent={Root} itemComponent={Item} labelComponent={Label} />
+//                     <Title
+//                         text="Demand of an Inferior Good vs. % Change in Income"
+//                         textComponent={Text}
+//                     />
+//                 </Chart>
+//                 <Slider
+//                     // aria-label = "IncomeChange"
+//                     min = {-5}
+//                     max = {5}
+//                     // step = {1}
+//                     onChangeChanged={(_, value) => setPosition(value)}
+//                     value = {position}
+//                     // valueLabelDisplay = "auto"
+//                     // valueLabelFormat = {(value) => {return `${value}%`;}}
+//                 />
+//                 <p>% Change in Income</p>
                 
-            </Paper>
-        </div>
-    );
+//             </Paper>
+//         </div>
+//     );
+// }
+
+class IncomeChart extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            value : 3
+        };
+        this.chartData = [
+            {x1 : 5, y1 : 95},
+            {x1 : 25, y1 : 25},
+            {x1 : 95, y1 : 5},
+            {x2 : 5 - this.state.value, y2 : 95 - this.state.value},
+            {x2 : 25 - this.state.value, y2 : 25 - this.state.value},
+            {x2 : 95 - this.state.value, y2 : 5 - this.state.value},
+        ];
+
+        this.handleValueChange = this.handleValueChange.bind(this);
+    }
+
+    handleValueChange(e) {
+        const newValue = e.value;
+        this.setState({
+            value: newValue
+        });
+        this.chartData = [
+            {x1 : 5, y1 : 95},
+            {x1 : 25, y1 : 25},
+            {x1 : 95, y1 : 5},
+            {x2 : 5 - this.state.value, y2 : 95 - this.state.value},
+            {x2 : 25 - this.state.value, y2 : 25 - this.state.value},
+            {x2 : 95 - this.state.value, y2 : 5 - this.state.value},
+        ];
+    }
+
+    
+
+    render() {
+        return (
+            <div className = "IncomeChart">
+                <Paper>
+                    <Chart data={this.chartData}>
+                        <ArgumentScale modifyDomain={() => [0, 100]}/>
+                        <ValueScale modifyDomain={() => [0, 100]}/>
+                        <ArgumentAxis showLabels={false}/>
+
+                        <ValueAxis showLabels={false}/>
+                        <LineSeries name="Original Demand" valueField="x1" argumentField="y1" seriesComponent={Line}/>
+                        <LineSeries name="Demand after income change" valueField="x2" argumentField="y2" seriesComponent={Line}/>
+                        <Legend position = "bottom" rootComponent={Root} itemComponent={Item} labelComponent={Label} />
+                        <Title
+                            text="Demand of an Inferior Good vs. % Change in Income"
+                            textComponent={Text}
+                        />
+                    </Chart>
+                    <Slider
+                        min={-5}
+                        max={5}
+                        value={this.state.value}
+                        onValueChanged={this.handleValueChange}
+                    />
+                    <p>% Change in Income</p>
+                </Paper>
+            </div>
+        );
+    }
 }
 
 export default IncomeChart;
