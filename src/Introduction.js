@@ -18,7 +18,8 @@ again, becoming one of two supervisors at two separate \
 locations. Unfortunately, in October 2022, MoDo Hawaii \
 went out of business due to massive increases in supply \
 prices. Out of our 5 locations, only the Santa Clara \
-location survived.";
+location survived. As a result, I was also laid off, \
+as the Irvine location ceased to exist.";
 
 const eggs = "\
 Mochi donuts are comprised of common ingredients, \
