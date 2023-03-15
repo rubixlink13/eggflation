@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/eggflation/static/css/main.ef4b55b0.css",
+    "main.js": "/eggflation/static/js/main.b0a1c614.js",
+    "static/js/787.ce652afb.chunk.js": "/eggflation/static/js/787.ce652afb.chunk.js",
+    "static/media/dxicons.woff": "/eggflation/static/media/dxicons.c568ff14b17313b699e2.woff",
+    "static/media/dxicons.ttf": "/eggflation/static/media/dxicons.506efc48bb7054c11c4d.ttf",
+    "static/media/dxicons.woff2": "/eggflation/static/media/dxicons.dc1bbe3fe80897e2c012.woff2",
+    "index.html": "/eggflation/index.html",
+    "main.ef4b55b0.css.map": "/eggflation/static/css/main.ef4b55b0.css.map",
+    "main.b0a1c614.js.map": "/eggflation/static/js/main.b0a1c614.js.map",
+    "787.ce652afb.chunk.js.map": "/eggflation/static/js/787.ce652afb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ef4b55b0.css",
+    "static/js/main.b0a1c614.js"
+  ]
+}
