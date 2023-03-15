@@ -1,3 +1,7 @@
 .EggPrices {
-    
+    text-align: justify;
+    width: 92%;
+    margin: 0 2%;
+    background-color: lightgrey;
+    padding: 2%;
 }
