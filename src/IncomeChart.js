@@ -149,10 +149,9 @@ class IncomeChart extends React.Component {
             <div className = "IncomeChart">
                 <Paper>
                     <Chart data={this.chartData}>
-                        <ArgumentScale modifyDomain={() => [0, 100]}/>
-                        <ValueScale modifyDomain={() => [0, 100]}/>
+                        <ArgumentScale modifyDomain={modifyDomain}/>
+                        <ValueScale modifyDomain={modifyDomain}/>
                         <ArgumentAxis showLabels={false}/>
-
                         <ValueAxis showLabels={false}/>
                         <LineSeries name="Original Demand" valueField="x1" argumentField="y1" seriesComponent={Line}/>
                         <LineSeries name="Demand after income change" valueField="x2" argumentField="y2" seriesComponent={Line}/>
@@ -162,13 +161,13 @@ class IncomeChart extends React.Component {
                             textComponent={Text}
                         />
                     </Chart>
+                    <p>% Change in Income:</p>
                     <Slider
                         min={-5}
                         max={5}
                         value={this.state.value}
                         onValueChanged={this.handleValueChange}
                     />
-                    <p>% Change in Income</p>
                 </Paper>
             </div>
         );
