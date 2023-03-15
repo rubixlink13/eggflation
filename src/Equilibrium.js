@@ -3,6 +3,7 @@ import Paper from '@mui/material/Paper';
 import {
     Chart,
     LineSeries,
+    ScatterSeries,
     ArgumentAxis,
     ValueAxis,
     Title,
@@ -48,6 +49,14 @@ const Text = ({ text }) => {
 
 const modifyDomain = () => [0, 100];
 
+const calculateP = (s, d) => {
+    return (s / 2) + (d / 2) + 50;
+}
+
+const calculateQ = (s, d) => {
+    return (100/170) * (70 + d - s);
+}
+
 class Equilibrium extends React.Component {
     constructor(props) {
         super(props);
@@ -65,6 +74,8 @@ class Equilibrium extends React.Component {
             {d1q : 85, d1p : 0},
             {d2q : 15, d2p : 100},
             {d2q : 100, d2p : 0},
+            {e1q : 50, e1p : 3500/85},
+            {e2q : 50, e2p : 5000/85},
         ];
 
         this.handleSupplyChange = this.handleSupplyChange.bind(this);
@@ -86,6 +97,8 @@ class Equilibrium extends React.Component {
             {d1q : 85, d1p : 0},
             {d2q : this.state.demand, d2p : 100},
             {d2q : 85 + this.state.demand, d2p : 0},
+            {e1q : 50, e1p : 3500/85},
+            {e2q : calculateP(this.state.supply, this.state.demand), e2p : calculateQ(this.state.supply, this.state.demand)},
         ];
     }
 
@@ -104,6 +117,8 @@ class Equilibrium extends React.Component {
             {d1q : 85, d1p : 0},
             {d2q : this.state.demand, d2p : 100},
             {d2q : 85 + this.state.demand, d2p : 0},
+            {e1q : 50, e1p : 3500/85},
+            {e2q : calculateP(this.state.supply, this.state.demand), e2p : calculateQ(this.state.supply, this.state.demand)},
         ];
     }
 
@@ -123,6 +138,8 @@ class Equilibrium extends React.Component {
                         <LineSeries name="Supply*" argumentField="s2q" valueField="s2p"/>
                         <LineSeries name="Demand" argumentField="d1q" valueField="d1p"/>
                         <LineSeries name="Demand*" argumentField="d2q" valueField="d2p"/>
+                        <ScatterSeries name="Equilibrium" argumentField="e1q" valueField = "e1p" />
+                        <ScatterSeries name="Equilibrium*" argumentField="e2q" valueField = "e2p" />
                         <Legend position = "bottom" rootComponent={Root} itemComponent={Item} labelComponent={Label} />
                         <Title
                             text="Equilibrium of the Egg Market"
