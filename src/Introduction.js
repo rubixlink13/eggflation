@@ -37,6 +37,10 @@ by Pew Research Center, between 2019 and 2020, \"the median \
 income of lower-income households decreased by 3.0% and the \
 median income of middle-income households fell by 2.1%.\"";
 
+const graph = "\
+The interactive graph below shows how changes in income \
+will shift the demand curve (click and drag the slider!)"
+
 function Introduction() {
     return (
         <div className = "Introduction">
@@ -46,6 +50,7 @@ function Introduction() {
             <h2>Eggs</h2>
             <p>{eggs}<strong>inferior good</strong>.</p>
             <p>{inferiorgoods}<a target="_blank" href="https://www.pewresearch.org/social-trends/2022/04/20/covid-19-pandemic-pinches-finances-of-americas-lower-and-middle-income-families/#:~:text=From%202019%20to%202020%2C%20the,Center%20analysis%20of%20government%20data.">study</a>{study}</p>
+            <p>{graph}</p>
         </div>
     );
 }
