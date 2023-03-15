@@ -4,12 +4,14 @@ import './index.css';
 import Title from './Title';
 import Introduction from './Introduction';
 import reportWebVitals from './reportWebVitals';
+import IncomeChart from './IncomeChart';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Title />
     <Introduction />
+    <IncomeChart />
   </React.StrictMode>
 );
 

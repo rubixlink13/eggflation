@@ -1,0 +1,10 @@
+.IncomeChart {
+    margin: auto;
+    padding: 2%;
+    max-width: 750px;
+}
+
+.IncomeChart p {
+    text-align: center;
+    padding-bottom: 5px;
+}
