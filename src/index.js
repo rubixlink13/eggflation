@@ -9,6 +9,7 @@ import EggPrices from './EggPrices';
 import EggPriceChart from './EggPriceChart';
 import EggDisaster from './EggDisaster';
 import Equilibrium from './Equilibrium';
+import Conclusion from './Conclusion';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +21,7 @@ root.render(
     <EggPriceChart />
     <EggDisaster />
     <Equilibrium />
+    <Conclusion />
   </React.StrictMode>
 );
 
