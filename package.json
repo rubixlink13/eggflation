@@ -1,6 +1,7 @@
 {
   "name": "egg_js",
   "version": "0.1.0",
+  "homepage": "https://rubixlink13.github.io/eggflation",
   "private": true,
   "dependencies": {
     "@devexpress/dx-react-chart": "^4.0.3",
@@ -21,6 +22,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -45,6 +48,7 @@
     ]
   },
   "devDependencies": {
-    "@types/d3": "^7.4.0"
+    "@types/d3": "^7.4.0",
+    "gh-pages": "^5.0.0"
   }
 }
