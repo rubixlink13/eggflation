@@ -5,6 +5,7 @@
 }
 
 .Equilibrium p {
-    text-align: center;
+    text-align: left;
     padding-bottom: 5px;
+    padding-left: 5px;
 }
