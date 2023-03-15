@@ -2,23 +2,19 @@ import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import {
     Chart,
-    ArgumentAxis,
-    ValueAxis,
     LineSeries,
     Title,
     Legend,
 } from '@devexpress/dx-react-chart-material-ui';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import { ArgumentScale, ValueScale, Animation,} from '@devexpress/dx-react-chart';
+import { ArgumentScale, ValueScale,} from '@devexpress/dx-react-chart';
 import {
     curveCatmullRom,
     line,
 } from 'd3-shape';
-import {scalePoint} from 'd3-scale';
 import './IncomeChart.css';
 import Slider from '@mui/material/Slider';
-import Button from '@mui/material/Button';
 
 const Line = props => (
     <LineSeries.Path
