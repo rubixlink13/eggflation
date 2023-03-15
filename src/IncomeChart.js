@@ -54,7 +54,7 @@ const Text = ({ text }) => {
         <Typography variant="subtitle1">{subText}</Typography>
       </StyledDiv>
     );
-  };
+};
 
 const modifyDomain = () => [0, 100];
 function IncomeChart() {
